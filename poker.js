@@ -53,8 +53,23 @@ let sorted = [
   "K-S",
 ];
 
+function c_create(number1, number2, kinekaköre) {
+  let card = document.createElement("img");
+  card.src = "Forrás/" + number2 + "-" + number1 + ".png";
+  card.title = number1 + "_" + number2;
+  card.alt = number1 + "_" + number2;
+  card.id = number1 + "_" + number2;
+  card.classList = "cards";
+  document.getElementById(kinekaköre).appendChild(card); //document.getElementById helyére annak a halmaznak az id-ét kell beírni, ahová beakarjuk illeszteni a kártyát.
+}
+function deleteelement(id) {
+  let elements = document.getElementById(id);
+  while (elements.hasChildNodes()) {
+      elements.removeChild(elements.firstChild);
+  }
+}
 
-const random = [];
+var random = [];
 function randomizalas(sorted) {
   for (let i = 0; i < 52; i++) {
     let rnd = Math.floor(Math.random() * sorted.length);
@@ -67,12 +82,12 @@ function randomizalas(sorted) {
 }
 
 let valasztott = [0, 0, 1, 1, 0];
-cserelendo = /*document.getElementsByClassName("jatekos")*/ valasztott;
+cserelendo = document.getElementsByName("kartya") /*valasztott*/;
 
 function kártyaTörlés(kartyak) {
     let removedDB=0;
   for (let i = 0; i < 5; i++) {
-    if (cserelendo[i] == 1) {
+    if (cserelendo[i].checked) {
       //1 = is checked
       let removedElement = kartyak.splice(i-removedDB, 1);
         removedDB++
@@ -88,16 +103,32 @@ function kártyaHúz(kartyak) {
     random.splice(0, 1)
   }
 }
+function osztas(){
+  kartyak = [random[0], random[1], random[2], random[3], random[4]];
+  random.splice(0, 5);
+}
+function kiiras(){
+  deleteelement("jatekos") //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  for(let i = 0;i<kartyak.length;i++){
+    if (kartyak[i][0] !== "1") {
+      c_create(kartyak[i][2], kartyak[i][0], "jatekos"); //!!!!!!!!!!!!!!!!!!!!
+  } else {
+      c_create(kartyak[i][3], "10", "jatekos"); //!!!!!!!!!!!!!!!!!!
+  }
+  }
+}
+
+function main(){
+  randomizalas(sorted);
+  osztas();
+  kiiras();
+}
+
+function újrahúz(){
+  kártyaTörlés(kartyak);
+  kártyaHúz(kartyak);
+  kiiras()
+}
 
 
-
-
-randomizalas(sorted);
-var kartyak = [random[0], random[1], random[2], random[3], random[4]];
-random.splice(0, 5);
-
-console.log(kartyak);
-kártyaTörlés(kartyak);
-console.log(kartyak);
-kártyaHúz(kartyak);
-console.log(kartyak);
+var kartyak = []
