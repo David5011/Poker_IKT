@@ -82,12 +82,12 @@ function randomizalas(sorted) {
 }
 
 let valasztott = [0, 0, 1, 1, 0];
-cserelendo = /*document.getElementsByClassName("jatekos")*/ valasztott;
+cserelendo = document.getElementsByName("kartya") /*valasztott*/;
 
 function kártyaTörlés(kartyak) {
     let removedDB=0;
   for (let i = 0; i < 5; i++) {
-    if (cserelendo[i] == 1) {
+    if (cserelendo[i].checked) {
       //1 = is checked
       let removedElement = kartyak.splice(i-removedDB, 1);
         removedDB++
@@ -132,9 +132,3 @@ function újrahúz(){
 
 
 var kartyak = []
-
-console.log(kartyak);
-kártyaTörlés(kartyak);
-console.log(kartyak);
-kártyaHúz(kartyak);
-console.log(kartyak);
