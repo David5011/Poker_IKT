@@ -1,0 +1,72 @@
+body {
+    background-image: url(img/poker-table-2.jpg);
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#fodiv {
+    background-color: rgba(255, 255, 255, 0.96);
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-style: solid;
+    padding-top: 15px;
+    border-radius: 10px
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #2E8B57;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2E8B57;
+    font-size: 20px;
+    transition: color 0.3s;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+nav ul li a:hover {
+    color: #45a049;
+}
+
+#content {
+    margin-top: 20px;
+}
+
+
+/*Dávid*/
+
+.cards{
+    height: 15vmax;
+    width: 10vmax;
+    margin-right: 1vmax !important;
+    display: inline-block;
+}
+#kartyak{
+    margin: auto;
+    width: fit-content;
+}
