@@ -65,7 +65,7 @@ function c_create(number1, number2, hova) {
 function deleteelement(id) {
   let elements = document.getElementById(id);
   while (elements.hasChildNodes()) {
-      elements.removeChild(elements.firstChild);
+    elements.removeChild(elements.firstChild);
   }
 }
 
@@ -85,12 +85,12 @@ let valasztott = [0, 0, 1, 1, 0];
 cserelendo = document.getElementsByName("kartya") /*valasztott*/;
 
 function kártyaTörlés(kartyak) {
-    let removedDB=0;
+  let removedDB = 0;
   for (let i = 0; i < 5; i++) {
     if (cserelendo[i].checked) {
       //1 = is checked
-      let removedElement = kartyak.splice(i-removedDB, 1);
-        removedDB++
+      let removedElement = kartyak.splice(i - removedDB, 1);
+      removedDB++;
       //console.log(kartyak);
       //console.log(removedElement);
     }
@@ -100,36 +100,74 @@ function kártyaTörlés(kartyak) {
 function kártyaHúz(kartyak) {
   while (kartyak.length != 5) {
     kartyak.push(random[0]);
-    random.splice(0, 1)
+    random.splice(0, 1);
   }
-  cserelendo.forEach(element => { element.checked = false;});
+  cserelendo.forEach((element) => {
+    element.checked = false;
+  });
 }
-function osztas(){
+function osztas() {
   kartyak = [random[0], random[1], random[2], random[3], random[4]];
   random.splice(0, 5);
 }
-function kiiras(){
-  deleteelement("kartyak") //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  for(let i = 0;i<kartyak.length;i++){
+function kiiras() {
+  deleteelement("kartyak"); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  for (let i = 0; i < kartyak.length; i++) {
     if (kartyak[i][0] !== "1") {
       c_create(kartyak[i][2], kartyak[i][0], "kartyak"); //!!!!!!!!!!!!!!!!!!!!
-  } else {
+    } else {
       c_create(kartyak[i][3], "10", "kartyak"); //!!!!!!!!!!!!!!!!!!
-  }
+    }
   }
 }
-
-function main(){
+function labelKiir() {
+  let asd = ["LabelA", "LabelB", "LabelC", "LabelD", "LabelE"];
+  for (let i = 0; i < asd.length; i++) {
+    if (kartyak[i][0] !== "1") {
+      document.getElementById(asd[i]).innerHTML = `${kartyak[i][0]} - ${melyikSuit(kartyak[i][2])}`;
+    } else {
+      document.getElementById(asd[i]).innerHTML = `10 - ${melyikSuit(kartyak[i][3])}`;
+    }
+  }
+}
+function melyikSuit(temp) {
+  switch (temp) {
+    case "C":
+      return "Clubs"; break;
+    case "D":
+      return "Diamonds"; break;
+    case "H":
+      return "Hearts"; break;
+    case "S":
+      return "Spades"; break;
+      default: break;
+  }
+}
+function main() {
   randomizalas(sorted);
   osztas();
   kiiras();
+  labelKiir();
+  document.getElementById("mainButton").style.visibility = "hidden";
+  document.getElementById("radio").style.visibility = "visible";
+  document.getElementById("újrahúzButton").style.visibility = "visible";
 }
 
-function újrahúz(){
-  kártyaTörlés(kartyak);
-  kártyaHúz(kartyak);
-  kiiras()
+function újrahúz() {
+  let vanKijelölve = false;
+  cserelendo.forEach((element) => {
+    if (element.checked) {
+      vanKijelölve = true;
+    }
+  });
+  if (vanKijelölve) {
+    kártyaTörlés(kartyak);
+    kártyaHúz(kartyak);
+    kiiras();
+    labelKiir();
+  } else {
+    alert("Válasszon cserélendő kártyát!");
+  }
 }
 
-
-var kartyak = []
+var kartyak = [];
