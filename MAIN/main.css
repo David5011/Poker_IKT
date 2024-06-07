@@ -89,6 +89,6 @@ nav ul li a:hover {
     margin: auto;
     width: fit-content;
 }
-#újrahúzButton,#radio{
+#újrahúzButton,#radio, #standButton{
     visibility: hidden;
 }

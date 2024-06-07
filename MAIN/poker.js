@@ -143,6 +143,11 @@ function melyikSuit(temp) {
       default: break;
   }
 }
+
+function ellenörzés(){
+  //legjobb kéz kiírása
+}
+
 function main() {
   randomizalas(sorted);
   osztas();
@@ -151,9 +156,11 @@ function main() {
   document.getElementById("mainButton").style.visibility = "hidden";
   document.getElementById("radio").style.visibility = "visible";
   document.getElementById("újrahúzButton").style.visibility = "visible";
+  document.getElementById("standButton").style.visibility = "visible";
 }
-
+let hanyszorkértÚjat = 0;
 function újrahúz() {
+  if(hanyszorkértÚjat<3){
   let vanKijelölve = false;
   cserelendo.forEach((element) => {
     if (element.checked) {
@@ -165,9 +172,19 @@ function újrahúz() {
     kártyaHúz(kartyak);
     kiiras();
     labelKiir();
+  hanyszorkértÚjat++;
   } else {
     alert("Válasszon cserélendő kártyát!");
   }
+}
+else{
+  alert("Nem húzhat többet!")
+  ellenörzés();
+}
+}
+function stand(){
+  hanyszorkértÚjat = 3;
+  ellenörzés();
 }
 
 var kartyak = [];
