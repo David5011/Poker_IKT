@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Póker</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="fodiv">
+        <div id="header">
+            <h1>5 kártyás póker kaszinó</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Játék</a></li>
+                    <li><a href="#" onclick="szabalyok()">Szabályok</a></li>
+                    <li><a href="https://egeszsegvonal.gov.hu/s-sz/445-szerencsejatek-fuggoseg.html"
+                            target="_blank">Segítség a leszokáshoz</a></li>
+                    <li><a href="https://hu.wikipedia.org/wiki/K%C3%A1rtyakombin%C3%A1ci%C3%B3k_(p%C3%B3ker)"
+                            target="_blank">Kártyakombinációk</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="game">
+            <!--Ide jöhet a tartalom-->
+            <div id="kartyak">
+
+            </div>
+
+            <form>
+                <div id="radio">
+                    <label for="a" id="LabelA"></label>
+                    <input type="checkbox" name="kartya" id="a" value="0">
+                    <label for="b" id="LabelB"></label>
+                    <input type="checkbox" name="kartya" id="b" value="1">
+                    <label for="c" id="LabelC"></label>
+                    <input type="checkbox" name="kartya" id="c" value="2">
+                    <label for="d" id="LabelD"></label>
+                    <input type="checkbox" name="kartya" id="d" value="3">
+                    <label for="e" id="LabelE"></label>
+                    <input type="checkbox" name="kartya" id="e" value="4">
+                    <input type="button" value="Új húz" onclick="újrahúz()" id="újrahúzButton">
+                </div>
+                <input type="button" value="Start" onclick="main()" id="mainButton">
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="poker.js"></script>
+    <script src="szabalyok.js"></script>
+</body>
+
+</html>

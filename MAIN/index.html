@@ -2,88 +2,32 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Póker</title>
-    <link rel="stylesheet" href="indexstyle.css">
+    
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div id="fodiv">
-        <div id="header">
-            <h1>5 kártyás póker kaszinó</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Játék</a></li>
-                    <li><a href="#" onclick="szabalyok()">Szabályok</a></li>
-                    <li><a href="https://egeszsegvonal.gov.hu/s-sz/445-szerencsejatek-fuggoseg.html" target="_blank">Segítség a leszokáshoz</a></li>
-                    <li><a href="https://hu.wikipedia.org/wiki/K%C3%A1rtyakombin%C3%A1ci%C3%B3k_(p%C3%B3ker)" target="_blank">Kártyakombinációk</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="game">
-            <!--Ide jöhet a tartalom-->
-            <div id="kartyak">
-
+    <div class="container">
+        <div class="age-check">
+            <h1>Elmúltál már 18 éves?</h1>
+            <div class="buttons">
+                <button onclick="igen()">Igen</button>
+                <button onclick="nem()">Nem</button>
             </div>
-
-            <form>
-                <input type="button" value="Start" onclick="main()">
-                <input type="button" value="Új húz" onclick="újrahúz()">
-                <br>
-                <label for="a">első</label>
-                <input type="checkbox" name="kartya" id="a" value="0">
-                <label for="b">masodik</label>
-                <input type="checkbox" name="kartya" id="b" value="1">
-                <label for="c">harmadik</label>
-                <input type="checkbox" name="kartya" id="c" value="2">
-                <label for="d">neygedik</label>
-                <input type="checkbox" name="kartya" id="d" value="3">
-                <label for="e">otodik</label>
-                <input type="checkbox" name="kartya" id="e" value="4">
-            </form>
         </div>
     </div>
 
-    
-    
-    <script src="poker.js"></script>
-
-
     <script>
-        function szabalyok() {
-            const game_div = document.getElementById('game');
-            game_div.innerHTML = `
-                <h3>A lapok erősorrendje</h3>
-                <p>Az ötlapos póker játékot hagyományos 52-es franciakártya-paklival játsszák. Az 5 lapos póker játék szabályai előtt ismerjük meg a pókerkezek rangsorát. Ez nem más, mint az 5 lapos póker lapok erőssége.</p>
-                <ol>
-                <li>Royal Flush vagy rojálflös: színsor 10-estől ászig, mindent visz</li>
-                <li>Színsor: 5 azonos színű lap sorrendben</li>
-                <li>Póker: négy egyforma lap</li>
-                <li>Full House vagy full: egy pár és egy drill</li>
-                <li>Flush vagy flös: öt egyforma színű lap</li>
-                <li>Sor: sorrendben öt egymást követő lap</li>
-                <li>Drill: három egyforma lap</li>
-                <li>Két pár</li>
-                <li>Egy pár: két egyforma lap</li>
-                <li>Magas lap: általában bubitól ászig</li>
-                </ol>
-                <h3>Az 5 lapos póker játékszabályai</h3>
-                <ul>
-                <li>Az 5 lapos póker kétféle módon indulhat: az egyik változat az ante, ahol minden játékos ugyanakkora tétet fizet be. A másik a vakjáték, ahol az osztótól balra elsőként ülő játékos a kisvak, aki általában minimális licitet rak, a tőle tovább balra ülő a nagyvak, aki az előző tét kétszeresét teszi. A többieknek a játékba kerüléshez a nagyvaktól kezdve kell a licitről megállapodni.</li>
-                <li>Az osztó minden játékosnak öt lapot oszt tőle balra, az óramutató járásával azonos irányba haladva.</li>
-                <li>A játékosok lerakják a tétjeiket.</li>
-                <li>A játékosok megnézik a lapjaikat, és eldöntik, hogy kérnek-e új kártyát a régit letéve, passzolnak vagy emelnek, miközben a lehető legjobb kezet próbálják összerakni.</li>
-                <li>Ebben a körben a játékosok eldönthetik, hogy passzolnak vagy emelnek. Ha egy játékos emeli a tétet, az őt követő játékosok csak akkor maradhatnak játékban, ha ők is elfogadják az emelést. Másik eshetőség: ha mindenki kiszáll, akkor az a játékos viszi a bankot, aki egyedüliként emelt.</li>
-                <li>A bent maradó játékosok megmutatják a lapjaikat.</li>
-                <li>A legerősebb kézzel rendelkező játékos nyer.</li>
-                <li>Ha kettő vagy több játékosnak egyenlő lapértékei vannak, akkor egyenlően osztoznak a nyereményen.</li>
-                </ul>
-                <h3>Alaplépések</h3>
-                <ul>
-                <li>A 0-ás tétrakás az ellenőrzés.</li>
-                <li>Tartjuk a tétet, ha valaki emeléséhez társulunk.</li>
-                <li>Emelünk, amikor megnöveljük az előző tét összegét.</li>
-                <li>Passzolunk, vagy felmutatjuk a lapjainkat, kiszállunk a játékból.</li>
-            `;
+        function igen() 
+        {
+            window.location.href = 'main.html';
+        }
+
+        function nem() 
+        {
+            window.location.href = 'https://www.friv.com/';
         }
     </script>
 </body>
